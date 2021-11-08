@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load my_custom_tags %}
+{% block title %} Todo Details {% endblock %}
+{% block main %}
+{% my_simple_tag user as my_simple_variable %}
+<h5>  {{my_simple_variable}} </h5>
+
+<table>
+
+        <thead>
+        <tr>
+            <td> task id</td>
+            <td> task name</td>
+            <td> priority</td>
+            <td>Description</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr {% if priority > 3 %} style="color:red" {% else %} style="color:green" {% endif %} >
+            <td>{{task_id}}</td>
+            <td>{{name | name_filter_cleaner}}</td>
+            <td>{{priority}}</td>
+            <td>{{task_description | truncatewords:3}}</td>
+        </tr>
+
+        </tbody>
+</table>
+{% endblock %}
+
+

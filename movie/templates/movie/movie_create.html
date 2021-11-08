@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="text-center mt-5" style="display:inline">
+        <a href="{% url 'movie:movie_list' %}">
+            <button type="button" class="btn btn-info">
+                back to movie list
+            </button>
+        </a>
+
+    </div>
+
+</form>
+
+</body>
+</html>

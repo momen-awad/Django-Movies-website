@@ -1,0 +1,24 @@
+{% load static%}
+
+
+<ul class="nav" style="background-color:black;color:white;padding:13px;font-weight:bold;margin-bottom:20px">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#" style="color:white">Netflex</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'movie:movie_list' %}" style="color:white">Movie</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'movie:movie_create' %}" style="color:white">Add new movie</a>
+  </li>
+  <li class="nav-item">
+    {% if user.is_authenticated %}
+    <a class="nav-link" style="color:white" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a class="nav-link" style="color:white" href="{% url 'login' %}">LogIn</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'accounts:signup' %}" style="color:white">register</a>
+  </li>
+  {% endif %}
+</ul>
