@@ -32,8 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts',
-    'movie.apps.MovieCofig',
+    'movie.apps.MovieConfig',
     'ToDo',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,10 +134,10 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/movie'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'awadmomen96@gmail.com'
-EMAIL_HOST_USER = ''
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_PASSWORD = 'awadmomen96@gmail.com'
+#EMAIL_HOST_USER = 'somonos01283548665'
 
 

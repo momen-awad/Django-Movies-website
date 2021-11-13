@@ -24,7 +24,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('', include('ToDo.urls')),
-    path('movie/', include('movie.urls'))
+    path('movie/', include('movie.urls')),
+    path('api-auth/', include('rest_framework.urls'))
 ]
 
 if settings.DEBUG:
