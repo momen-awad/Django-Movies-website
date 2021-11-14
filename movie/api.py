@@ -4,6 +4,15 @@ from .models import Movie
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated, BasePermission
+
+
+class UserCanDelete(BasePermission):
+    def has_permission(self, request, view):
+        if request.user.groups.filter(name='Can-Delete').exists():
+            return True
+        return False
 
 @api_view(['GET'])
 def movie_data(request):
@@ -25,6 +34,7 @@ def create_movie(request):
 
 
 @api_view(['GET'])
+@permission_classes([UserCanDelete])
 def movie_detail(request,id):
     try:
         movie = Movie.objects.get(id=id)

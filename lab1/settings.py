@@ -31,10 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
+    'rest_framework.authtoken',
+    'accounts.apps.AccountsConfig',
     'movie.apps.MovieConfig',
     'ToDo',
-    'rest_framework',
+    #'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,6 +134,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/movie'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated']
+}
 
 #EMAIL_HOST = 'smtp.gmail.com'
 #EMAIL_PORT = 587
